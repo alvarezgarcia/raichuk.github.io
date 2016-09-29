@@ -7719,14 +7719,6 @@ var _user$project$Main$view = function (model) {
 		_elm_lang$core$Native_List.fromArray(
 			[
 				A2(
-				_elm_lang$html$Html$h1,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Título')
-					])),
-				A2(
 				_elm_lang$html$Html$input,
 				_elm_lang$core$Native_List.fromArray(
 					[
@@ -7771,8 +7763,8 @@ var _user$project$Main$update = F2(
 	function (msg, model) {
 		if (_elm_lang$core$Native_Utils.cmp(
 			_elm_lang$core$String$length(msg.patron),
-			4) > 0) {
-			var pattern = msg.patron;
+			1) > 0) {
+			var pattern = _elm_lang$core$String$toUpper(msg.patron);
 			var s = A2(
 				_elm_lang$core$List$filter,
 				function (e) {
