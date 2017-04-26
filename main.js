@@ -9602,7 +9602,7 @@ var Main = function (_Component) {
 				_react2.default.createElement(
 					'h1',
 					null,
-					'Sociedades Inteligentes'
+					'aa Sociedades Inteligentes'
 				),
 				_react2.default.createElement(
 					'h4',
