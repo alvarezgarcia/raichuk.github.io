@@ -8,14 +8,14 @@ var __wpo = {
     "additional": [],
     "optional": [
       "/favicon-16x16.png",
-      "/android-chrome-192x192.png",
       "/android-chrome-512x512.png",
-      "/browserconfig.xml",
       "/apple-touch-icon.png",
       "/favicon-32x32.png",
-      "/mstile-150x150.png",
+      "/browserconfig.xml",
+      "/manifest.json",
+      "/android-chrome-192x192.png",
       "/favicon.ico",
-      "/manifest.json"
+      "/mstile-150x150.png"
     ]
   },
   "externals": [],
@@ -24,18 +24,18 @@ var __wpo = {
     "ba8ab5a0280b953aa97435ff8946cbcbb2755a27": "/main.css",
     "c9dade4af20081b82ade7ab91da0e905b75d758d": "/",
     "8087ff66cd3035a80a876d9e6b0a612a02a4647d": "/favicon-16x16.png",
-    "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
     "444ce1509bbe176274baa4319a01485412ba9614": "/android-chrome-512x512.png",
-    "50575ff0c5afe41b59b1ef238bb0420e629bb666": "/browserconfig.xml",
     "a6281f1e0d38f0e100ff0d55a67277ae304e5486": "/apple-touch-icon.png",
     "cc19602b58ca1d578995908de78bf8a555ac24f5": "/favicon-32x32.png",
-    "8d0f29e9579822b13d56539f9ec4cd00cd595e9c": "/mstile-150x150.png",
+    "50575ff0c5afe41b59b1ef238bb0420e629bb666": "/browserconfig.xml",
+    "413ec2c216e227902443729d92175ad4ed77f8e7": "/manifest.json",
+    "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
     "3c71d720513579390e169b768d6d84d07834d9d4": "/favicon.ico",
-    "413ec2c216e227902443729d92175ad4ed77f8e7": "/manifest.json"
+    "8d0f29e9579822b13d56539f9ec4cd00cd595e9c": "/mstile-150x150.png"
   },
   "strategy": "changed",
-  "responseStrategy": "cache-first",
-  "version": "4/26/2017, 5:58:45 PM",
+  "responseStrategy": "network-first",
+  "version": "4/26/2017, 6:21:05 PM",
   "name": "webpack-offline",
   "pluginVersion": "4.7.0",
   "relativePaths": false
