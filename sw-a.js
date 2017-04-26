@@ -34,7 +34,7 @@ var __wpo = {
     "8d0f29e9579822b13d56539f9ec4cd00cd595e9c": "/mstile-150x150.png"
   },
   "strategy": "changed",
-  "responseStrategy": "cache-first",
+  "responseStrategy": "network-first",
   "version": "2017-4-26 01:14:54",
   "name": "webpack-offline",
   "pluginVersion": "4.7.0",
