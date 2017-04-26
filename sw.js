@@ -5,10 +5,7 @@ var __wpo = {
       "/main.css",
       "/"
     ],
-    "additional": [
-      "/courier-prime-webfont.woff",
-      "/courier-prime-webfont.woff2"
-    ],
+    "additional": [],
     "optional": [
       "/android-chrome-192x192.png",
       "/android-chrome-512x512.png",
@@ -23,11 +20,9 @@ var __wpo = {
   },
   "externals": [],
   "hashesMap": {
-    "6e6ca78cb5d9de76f32107f3c3cfc3b0549c70f3": "/courier-prime-webfont.woff",
-    "3c3414b444207e373d8d4f2aaeeafad78ce0483c": "/courier-prime-webfont.woff2",
-    "7afcf92a6d5f441b80ea3a1c544cd32b777f7b63": "/main.js",
-    "ed05a3956d06eee43071ca60ef75f73b9ff69d8e": "/main.css",
-    "042fc1ca160e25b759be42c50c74b4b932542f20": "/",
+    "baed02b517fcfae46abcc70cc5cf0b07fce5f237": "/main.js",
+    "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc": "/main.css",
+    "9e5924bfbf1759bef3751fdf1efea5ffa47388a8": "/",
     "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
     "444ce1509bbe176274baa4319a01485412ba9614": "/android-chrome-512x512.png",
     "a6281f1e0d38f0e100ff0d55a67277ae304e5486": "/apple-touch-icon.png",
@@ -40,7 +35,7 @@ var __wpo = {
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "2017-4-25 19:49:36",
+  "version": "2017-4-25 21:37:08",
   "name": "webpack-offline",
   "pluginVersion": "4.7.0",
   "relativePaths": false
