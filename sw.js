@@ -1,7 +1,7 @@
 var __wpo = {
   "assets": {
     "main": [
-      "/main-a.js",
+      "/main-b.js",
       "/main.css",
       "/"
     ],
@@ -20,7 +20,7 @@ var __wpo = {
   },
   "externals": [],
   "hashesMap": {
-    "489500ea04e5ed9cf05534b20aa9773e891bbf6d": "/main-a.js",
+    "489500ea04e5ed9cf05534b20aa9773e891bbf6d": "/main-b.js",
     "ba8ab5a0280b953aa97435ff8946cbcbb2755a27": "/main.css",
     "c9dade4af20081b82ade7ab91da0e905b75d758d": "/",
     "8087ff66cd3035a80a876d9e6b0a612a02a4647d": "/favicon-16x16.png",
