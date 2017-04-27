@@ -20,7 +20,7 @@ var __wpo = {
   },
   "externals": [],
   "hashesMap": {
-    "d99c4891ceb52ad712007e3c696719859b93312f": "/main.js",
+    "3634a57610325a830d9be20a25382e78301af382": "/main.js",
     "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc": "/main.css",
     "9e5924bfbf1759bef3751fdf1efea5ffa47388a8": "/",
     "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
@@ -35,7 +35,7 @@ var __wpo = {
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "2017-4-27 01:00:13",
+  "version": "2017-4-27 01:22:21",
   "name": "webpack-offline",
   "pluginVersion": "4.7.0",
   "relativePaths": false
