@@ -9580,6 +9580,7 @@ var Main = function (_Component) {
 			window.addEventListener('online', function () {
 				return _this2.setState({ isOnline: true });
 			});
+
 			window.addEventListener('offline', function () {
 				return _this2.setState({ isOnline: false });
 			});
@@ -9598,7 +9599,7 @@ var Main = function (_Component) {
 				_react2.default.createElement(
 					'h1',
 					null,
-					'Sociedades Inteligentes'
+					'Inteligentes'
 				),
 				_react2.default.createElement(
 					'h4',
