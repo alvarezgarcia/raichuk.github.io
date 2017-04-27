@@ -1,41 +1,41 @@
 var __wpo = {
   "assets": {
     "main": [
-      "/main-b.js",
+      "/main.js",
       "/main.css",
       "/"
     ],
     "additional": [],
     "optional": [
-      "/favicon-16x16.png",
+      "/browserconfig.xml",
+      "/android-chrome-192x192.png",
       "/android-chrome-512x512.png",
       "/apple-touch-icon.png",
-      "/favicon-32x32.png",
-      "/browserconfig.xml",
       "/manifest.json",
-      "/android-chrome-192x192.png",
+      "/favicon-32x32.png",
       "/favicon.ico",
+      "/favicon-16x16.png",
       "/mstile-150x150.png"
     ]
   },
   "externals": [],
   "hashesMap": {
-    "489500ea04e5ed9cf05534b20aa9773e891bbf6d": "/main-b.js",
-    "ba8ab5a0280b953aa97435ff8946cbcbb2755a27": "/main.css",
-    "c9dade4af20081b82ade7ab91da0e905b75d758d": "/",
-    "8087ff66cd3035a80a876d9e6b0a612a02a4647d": "/favicon-16x16.png",
+    "33cc255aa7d93b691df6cdd62f86062591427f37": "/main.js",
+    "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc": "/main.css",
+    "9e5924bfbf1759bef3751fdf1efea5ffa47388a8": "/",
+    "8e842e6737a3e67c13fa8b75fecc0081bb01fe47": "/browserconfig.xml",
+    "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
     "444ce1509bbe176274baa4319a01485412ba9614": "/android-chrome-512x512.png",
     "a6281f1e0d38f0e100ff0d55a67277ae304e5486": "/apple-touch-icon.png",
+    "d787619becf35ceddf7ea35bf1540e6546b2668d": "/manifest.json",
     "cc19602b58ca1d578995908de78bf8a555ac24f5": "/favicon-32x32.png",
-    "50575ff0c5afe41b59b1ef238bb0420e629bb666": "/browserconfig.xml",
-    "413ec2c216e227902443729d92175ad4ed77f8e7": "/manifest.json",
-    "5bbfec267fe95a66c62d3d02cd5568dec8371820": "/android-chrome-192x192.png",
     "3c71d720513579390e169b768d6d84d07834d9d4": "/favicon.ico",
+    "8087ff66cd3035a80a876d9e6b0a612a02a4647d": "/favicon-16x16.png",
     "8d0f29e9579822b13d56539f9ec4cd00cd595e9c": "/mstile-150x150.png"
   },
   "strategy": "changed",
-  "responseStrategy": "network-first",
-  "version": "4/26/2017, 6:21:05 PM",
+  "responseStrategy": "cache-first",
+  "version": "2017-4-26 21:33:49",
   "name": "webpack-offline",
   "pluginVersion": "4.7.0",
   "relativePaths": false
