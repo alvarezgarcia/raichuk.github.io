@@ -10657,6 +10657,8 @@ function update() {
 }
 
 
+  setInterval(update, 3000);
+
 
 exports.install = install;
 exports.applyUpdate = applyUpdate;
