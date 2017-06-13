@@ -60382,9 +60382,9 @@ THREEx.ArToolkitSource.prototype._initSourceWebcam = function(onReady) {
     domElement.style.width = this.parameters.displayWidth + 'px'
     domElement.style.height = this.parameters.displayHeight + 'px'
 
-		console.log(navigator.getUserMedia)
 		console.log(navigator.mediaDevices)
 		console.log(navigator.mediaDevices.enumerateDevices)
+		console.log(navigator.mediaDevices.getUserMedia)
 
     if (navigator.mediaDevices === undefined ||
         navigator.mediaDevices.enumerateDevices === undefined ||
