@@ -60276,9 +60276,7 @@ THREEx.ArToolkitSource.prototype._initSourceWebcamOld = function(onReady) {
         alert("2 WebRTC issue! navigator.mediaDevices.enumerateDevices not present in your browser");
     }
 
-		console.log(navigator.getUserMedia)
-		console.log(navigator.mediaDevices)
-		console.log(navigator.mediaDevices.enumerateDevices)
+		
 
     navigator.mediaDevices.enumerateDevices().then(function(devices) {
         // define getUserMedia() constraints
@@ -60384,10 +60382,14 @@ THREEx.ArToolkitSource.prototype._initSourceWebcam = function(onReady) {
     domElement.style.width = this.parameters.displayWidth + 'px'
     domElement.style.height = this.parameters.displayHeight + 'px'
 
+		console.log(navigator.getUserMedia)
+		console.log(navigator.mediaDevices)
+		console.log(navigator.mediaDevices.enumerateDevices)
+
     if (navigator.mediaDevices === undefined ||
         navigator.mediaDevices.enumerateDevices === undefined ||
         navigator.mediaDevices.getUserMedia === undefined) {
-        alert("WebRTC issue! navigator.mediaDevices.enumerateDevices not present in your browser");
+        alert("3 WebRTC issue! navigator.mediaDevices.enumerateDevices not present in your browser");
     }
 
     navigator.mediaDevices.enumerateDevices().then(function(devices) {
