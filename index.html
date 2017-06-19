@@ -122,17 +122,23 @@
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	// add a torus knot
+	var map = new THREE.TextureLoader().load("https://i.ytimg.com/vi/g2ag8t7AvX8/maxresdefault.jpg");
+
 	var geometry	= new THREE.CubeGeometry(1/2,1/2,1/2);
+  var material = new THREE.SpriteMaterial( { map: map, color: 0xffffff, fog: true } );
+	/*
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
 		opacity: 0.5,
 		side: THREE.DoubleSide
 	});
+	*/
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/2
 	markerRoot.add( mesh );
 
+  //var sprite = new THREE.Sprite( material );
+  scene.add( sprite );
 	/*
 	var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
 	var material	= new THREE.MeshNormalMaterial();
