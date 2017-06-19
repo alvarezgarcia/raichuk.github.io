@@ -61,6 +61,8 @@
 		// to read from a video
 		// sourceType : 'video',
 		// sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
+		sourceWidth: 80*3,
+		sourceHeight: 60*3,
 	})
 
 	arToolkitSource.init(function onReady(){
@@ -87,12 +89,9 @@
 	var arToolkitContext = new THREEx.ArToolkitContext({
 		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
 		detectionMode: 'mono',
-		minAspectRatio: 1.333,
 		maxDetectionRate: 30,
 		sourceWidth: arToolkitSource.parameters.sourceWidth,
 		sourceHeight: arToolkitSource.parameters.sourceHeight,
-		//canvasWidth: 80*3,
-		//canvasHeight: 60*3,
 	})
 
 	// initialize it
