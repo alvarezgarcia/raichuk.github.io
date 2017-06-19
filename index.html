@@ -123,7 +123,7 @@
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// add a torus knot
-	var geometry	= new THREE.CubeGeometry(1,1,1);
+	var geometry	= new THREE.CubeGeometry(1/2,1/2,1/2);
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
 		opacity: 0.5,
@@ -141,9 +141,11 @@
 	markerRoot.add( mesh );
 	*/
 
+	/*
 	onRenderFcts.push(function(){
 		mesh.rotation.x += 0.1
 	})
+	*/
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
