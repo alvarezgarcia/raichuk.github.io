@@ -53,16 +53,6 @@
 	var arToolkitSource = new THREEx.ArToolkitSource({
 		// to read from the webcam
 		sourceType : 'webcam',
-
-		// to read from an image
-		// sourceType : 'image',
-		// sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg',
-
-		// to read from a video
-		// sourceType : 'video',
-		// sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
-		sourceWidth: 80*3,
-		sourceHeight: 60*3,
 	})
 
 	arToolkitSource.init(function onReady(){
@@ -87,11 +77,11 @@
 
 	// create atToolkitContext
 	var arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+		//cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
 		detectionMode: 'mono',
 		maxDetectionRate: 30,
-		sourceWidth: arToolkitSource.parameters.sourceWidth,
-		sourceHeight: arToolkitSource.parameters.sourceHeight,
+		canvasWidth: 80*3,
+		canvasHeight: 60*3,
 	})
 
 	// initialize it
