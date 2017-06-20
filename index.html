@@ -339,22 +339,34 @@ body {
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	window.AudioContext	= window.AudioContext || window.webkitAudioContext;
-	var context	= new AudioContext()
-	// create the videoTexture
-	var videoTexture= new THREEx.VideoTexture('https://jeromeetienne.github.io/threex.videotexture/examples/videos/sintel.ogv')
-	onRenderFcts.push(function(delta, now){
-		console.log('Update')
-		videoTexture.update(delta, now)
-	})
-	// wait until the vid is loaded
-	videoTexture.video.addEventListener('canplaythrough', function(event){
-		console.log('Loaded')
-		// create a source node from the mediaElement
-		var sourceNode	= context.createMediaElementSource(videoTexture.video)
-		// connect it to WebAudio API
-		sourceNode.connect(context.destination)
-	})
+	// create the video element
+	video = document.createElement( 'video' );
+	// video.id = 'video';
+	// video.type = ' video/ogg; codecs="theora, vorbis" ';
+	video.src = "https://jeromeetienne.github.io/threex.videotexture/examples/videos/sintel.ogv";
+	video.load(); // must call after setting/changing source
+	video.play();
+	
+	// alternative method -- 
+	// create DIV in HTML:
+	// <video id="myVideo" autoplay style="display:none">
+	//		<source src="" type='video/ogg; codecs="theora, vorbis"'>
+	// </video>
+	// and set JS variable:
+	// video = document.getElementById( 'myVideo' );
+	
+	videoImage = document.createElement( 'canvas' );
+	videoImage.width = 480;
+	videoImage.height = 204;
+
+	videoImageContext = videoImage.getContext( '2d' );
+	// background color if no video present
+	videoImageContext.fillStyle = '#000000';
+	videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+
+	videoTexture = new THREE.Texture( videoImage );
+	videoTexture.minFilter = THREE.LinearFilter;
+	videoTexture.magFilter = THREE.LinearFilter;
 
 
 	/*
