@@ -339,7 +339,6 @@ body {
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	/*
 	window.AudioContext	= window.AudioContext || window.webkitAudioContext;
 	var context	= new AudioContext()
 	// create the videoTexture
@@ -350,12 +349,12 @@ body {
 	})
 	// wait until the vid is loaded
 	videoTexture.video.addEventListener('canplaythrough', function(event){
+		console.log('Loaded')
 		// create a source node from the mediaElement
 		var sourceNode	= context.createMediaElementSource(videoTexture.video)
 		// connect it to WebAudio API
 		sourceNode.connect(context.destination)
 	})
-	*/
 
 
 	/*
