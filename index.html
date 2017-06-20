@@ -343,7 +343,7 @@ body {
 	var context	= new AudioContext()
 	// create the videoTexture
 	var videoTexture= new THREEx.VideoTexture('http://jeromeetienne.github.io/threex.videotexture/examples/videos/sintel.ogv')
-	updateFcts.push(function(delta, now){
+	onRenderFcts.push(function(delta, now){
 		videoTexture.update(delta, now)
 	})
 	// wait until the vid is loaded
