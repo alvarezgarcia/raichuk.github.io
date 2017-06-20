@@ -375,16 +375,15 @@ body {
 	*/
 
 	var geometry = new THREE.PlaneGeometry( 1, 1);
+	/*
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : false,
 		side: THREE.DoubleSide
 	});
+	*/
 
-	/*
-	var material	= new THREE.MeshBasicMaterial({
-				map	: videoTexture.texture
-						});
-*/
+	var material = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
+
 
 	var mesh	= new THREE.Mesh( geometry, material );
 	//mesh.position.y	= geometry.parameters.height/2
