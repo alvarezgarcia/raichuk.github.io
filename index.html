@@ -337,20 +337,24 @@ body {
 	//////////////////////////////////////////////////////////////////////////////////
 
 
+	/*
 	var mesh = new THREE.AxisHelper()
 	markerRoot.add(mesh)
+	*/
 
 	// add a torus knot
-	var geometry	= new THREE.CubeGeometry(1,1,1);
+	var geometry = new THREE.PlaneGeometry( 300, 300 );
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
 		opacity: 0.5,
 		side: THREE.DoubleSide
 	});
+
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/2
 	markerRoot.add( mesh );
 
+	/*
 	var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
 	var material	= new THREE.MeshNormalMaterial();
 	var mesh	= new THREE.Mesh( geometry, material );
@@ -360,6 +364,7 @@ body {
 	onRenderFcts.push(function(delta){
 		mesh.rotation.x += delta * Math.PI
 	})
+	*/
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
