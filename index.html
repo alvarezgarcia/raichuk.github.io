@@ -1,152 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>three.js canvas - materials - video</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				font-family: Monospace;
-				background-color: #f0f0f0;
-				margin: 0px;
-				overflow: hidden;
-			}
-		</style>
-	</head>
-	<body>
 
+<html>
+
+<head>
+    <title>Example 10.11 - Video texture - non canvas</title>
 		<script src="https://jeromeetienne.github.io/AR.js/three.js/examples/vendor/three.js/build/three.js"></script>
-		<script src="../build/three.js"></script>
 
-		<script src="https://threejs.org/examples/js/renderers/Projector.js"></script>
-		<script src="https://threejs.org/examples/js/renderers/CanvasRenderer.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
 
-		<script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+<div id="Stats-output">
+</div>
 
-		<video id="video" autoplay loop webkit-playsinline style="display:none">
-			<source src="https://threejs.org/examples/textures/sintel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-			<source src="https://threejs.org/examples/textures/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-		</video>
+<video id="video" style="display: none; position: absolute; left: 15px; top: 75px;"
+       src="http://jeromeetienne.github.io/threex.videotexture/examples/videos/sintel.ogv" controls="true" autoplay="true"></video>
 
-		<script>
+<!-- Div which will hold the Output -->
+<div id="WebGL-output">
+</div>
 
-			var AMOUNT = 100;
+<!-- Javascript code that runs our Three.js examples -->
+<script type="text/javascript">
 
-			var container, stats;
+    var texture;
 
-			var camera, scene, renderer;
-
-			var video, image, imageContext,
-			imageReflection,
-			texture, textureReflection;
-
-			var mesh;
-
-			var mouseX = 0;
-			var mouseY = 0;
-
-			var windowHalfX = window.innerWidth / 2;
-			var windowHalfY = window.innerHeight / 2;
-
-			init();
-			animate();
-
-			function init() {
-
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
-
-				var info = document.createElement( 'div' );
-				info.style.position = 'absolute';
-				info.style.top = '10px';
-				info.style.width = '100%';
-				info.style.textAlign = 'center';
-				info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - video demo. playing <a href="http://durian.blender.org/" target="_blank">sintel</a> trailer';
-				container.appendChild( info );
-
-				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.z = 1000;
-
-				scene = new THREE.Scene();
-
-				video = document.getElementById( 'video' );
-
-				//
-
-				image = document.createElement( 'canvas' );
-				image.width = 480;
-				image.height = 204;
-
-				imageContext = image.getContext( '2d' );
-				imageContext.fillStyle = '#000000';
-				imageContext.fillRect( 0, 0, 480, 204 );
-
-				texture = new THREE.Texture( image );
-
-				var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
-
-				var plane = new THREE.PlaneGeometry( 480, 204, 4, 4 );
-
-				mesh = new THREE.Mesh( plane, material );
-				mesh.scale.x = mesh.scale.y = mesh.scale.z = 1.5;
-				scene.add(mesh);
-
-				renderer = new THREE.CanvasRenderer();
-				renderer.setClearColor( 0xf0f0f0 );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
-
-				stats = new Stats();
-				container.appendChild( stats.dom );
+    // once everything is loaded, we run our Three.js stuff.
+    function init() {
 
 
-				//
+        // create a scene, that will hold all our elements such as objects, cameras and lights.
+        var scene = new THREE.Scene();
 
-				window.addEventListener( 'resize', onWindowResize, false );
+        // create a camera, which defines where we're looking at.
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-			}
+        // create a render and set the size
+        var webGLRenderer = new THREE.WebGLRenderer();
+        webGLRenderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+        webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+        webGLRenderer.shadowMapEnabled = true;
 
-			function onWindowResize() {
-
-				windowHalfX = window.innerWidth / 2;
-				windowHalfY = window.innerHeight / 2;
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-			}
-
-			//
-
-			function animate() {
-
-				requestAnimationFrame( animate );
-
-				render();
-				stats.update();
-
-			}
-
-			function render() {
-
-				if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
-
-					imageContext.drawImage( video, 0, 0 );
-
-					if ( texture ) texture.needsUpdate = true;
-					if ( textureReflection ) textureReflection.needsUpdate = true;
-
-				}
-
-				renderer.render( scene, camera );
-
-			}
+        var video = document.getElementById('video');
+        texture = new THREE.VideoTexture(video);
+        var cube;
 
 
-		</script>
+        cube = createMesh(new THREE.BoxGeometry(22, 16, 0.2), "floor-wood.jpg");
+        cube.position.y = 2;
+        scene.add(cube);
 
-	</body>
+
+        // position and point the camera to the center of the scene
+        camera.position.x = 00;
+        camera.position.y = 1;
+        camera.position.z = 28;
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+        var ambiLight = new THREE.AmbientLight(0x141414);
+        scene.add(ambiLight);
+
+        var light = new THREE.DirectionalLight();
+        light.position.set(0, 30, 20);
+        scene.add(light);
+
+        // add the output of the renderer to the html element
+        document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
+
+        // call the render function
+        var step = 0;
+
+//        var polyhedron = createMesh(new THREE.PolyhedronGeometry(vertices, faces, controls.radius, controls.detail));
+
+        // setup the control gui
+        var controls = new function () {
+
+            this.showVideo = false;
+            this.rotate = false;
+
+            this.showCanvas = function () {
+                if (controls.showVideo) {
+                    $('#video').show();
+                } else {
+                    $('#video').hide();
+                }
+            }
+
+        };
+
+
+
+        render();
+
+        function createMesh(geom) {
+
+            var materialArray = [];
+            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
+            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
+            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
+            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
+            materialArray.push(new THREE.MeshBasicMaterial({map: texture}));
+            materialArray.push(new THREE.MeshBasicMaterial({color: 0xff51ba}));
+            var faceMaterial = new THREE.MeshFaceMaterial(materialArray);
+
+
+            // create a multimaterial
+            var mesh = new THREE.Mesh(geom, faceMaterial);
+
+            return mesh;
+        }
+
+        function render() {
+
+            if (controls.rotate) {
+                cube.rotation.x += -0.01;
+                cube.rotation.y += -0.01;
+                cube.rotation.z += -0.01;
+            }
+
+
+            // render using requestAnimationFrame
+            requestAnimationFrame(render);
+            webGLRenderer.render(scene, camera);
+        }
+
+    }
+    window.onload = init;
+</script>
+
+</body>
 </html>
