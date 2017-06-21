@@ -1,0 +1,16 @@
+body {
+	background: url(/imgs/mask2.jpg) no-repeat center center fixed;
+}
+
+.test {
+	position: fixed;
+	top: 300px;
+	left: 500px;
+	/*top: calc(100% / 3);*/
+	/*left: calc(100% / 3);*/
+
+	width: 350px;
+	height: 200px;
+	/*border: 3px solid #73AD21;*/
+	box-shadow: 0 0 50px 20px #333;
+}
