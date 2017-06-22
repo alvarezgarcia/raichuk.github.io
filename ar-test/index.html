@@ -1,0 +1,17 @@
+<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
+<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded artoolkit='sourceType: webcam;'>
+	<a-assets>
+        <video id="video" src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" loop crossorigin autoplay></video>
+      </a-assets>
+
+		
+		<a-marker-camera preset='hiro'></a-marker-camera>
+            
+      <a-plane position='0 0.5 0' src='#video'></a-box>
+      
+      
+	</a-scene>
+</body>
