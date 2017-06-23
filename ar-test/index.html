@@ -6,12 +6,13 @@
 
 	<body>
 		<a-scene>
+
 			<a-assets>
-				<video id='vid' src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" crossorigin="anonymous" loop/>
-			</a-assets>
+        <video id="video" src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" loop crossorigin autoplay></video>
+      </a-assets>
 
 			<a-marker-camera preset='hiro'></a-marker-camera>
-      <a-entity id="vid" geometry="primitive:plane;width:4;height:2.15;depth:2;" rotation="30 30 0" position="0 2 0" material="shader:video;src:#bbb;"></a-entity>
+      <a-plane position='0 0.5 0' src='#video'></a-box>
 
 		</a-scene>
 	</body>
