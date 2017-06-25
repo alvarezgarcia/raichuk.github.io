@@ -20065,7 +20065,7 @@ var CSLayout = function (_Component) {
 				{ fixedHeader: true, fixedDrawer: true },
 				_react2.default.createElement(
 					_reactMdl.Header,
-					{ className: 'header', style: { background: 'url(./app/imgs/backgrounds/header-background.jpg) no-repeat', backgroundSize: 'cover' } },
+					{ className: 'header', style: { background: 'url(/app/imgs/backgrounds/header-background.jpg) no-repeat', backgroundSize: 'cover' } },
 					_react2.default.createElement(
 						'div',
 						{ className: 'header-input' },
@@ -20074,16 +20074,16 @@ var CSLayout = function (_Component) {
 							{ className: 'mdl-textfield mdl-js-textfield header-text-field header-text-field-div', label: 'Search' },
 							_react2.default.createElement('input', { className: 'mdl-textfield__input header-text-field-input' })
 						),
-						_react2.default.createElement('img', { className: 'header-logo', src: './app/imgs/logos/header-logo.png' })
+						_react2.default.createElement('img', { className: 'header-logo', src: '/app/imgs/logos/header-logo.png' })
 					)
 				),
 				_react2.default.createElement(
 					_reactMdl.Drawer,
-					{ style: { background: 'url(./app/imgs/backgrounds/drawer-background.jpg) no-repeat', backgroundSize: 'cover' } },
+					{ style: { background: 'url(/app/imgs/backgrounds/drawer-background.jpg) no-repeat', backgroundSize: 'cover' } },
 					_react2.default.createElement(
 						'div',
 						{ className: 'drawer-logo-container' },
-						_react2.default.createElement('img', { className: 'drawer-logo', src: './app/imgs/logos/drawer-logo.png' })
+						_react2.default.createElement('img', { className: 'drawer-logo', src: '/app/imgs/logos/drawer-logo.png' })
 					),
 					_react2.default.createElement('hr', null),
 					_react2.default.createElement(
@@ -20177,7 +20177,7 @@ var _reactMdl = __webpack_require__(63);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var imgsList = ['./app/imgs/samples/1.jpg'];
+var imgsList = ['/app/imgs/samples/1.jpg'];
 
 var Gallery = function Gallery(props) {
 
