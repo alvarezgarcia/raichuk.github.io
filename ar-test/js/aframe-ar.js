@@ -861,6 +861,11 @@ Object.assign( THREEx.ArToolkitContext.prototype, THREE.EventDispatcher.prototyp
 THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'
 THREEx.ArToolkitContext.REVISION = '1.0.1-dev'
 
+THREEx.ArToolkitContext.testURL = 'https://raichuk.github.io/ar-test/markers/'
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 //		init functions
@@ -1865,9 +1870,13 @@ AFRAME.registerComponent('artoolkitmarker', {
 		if( this.data.preset === 'hiro' ){
 			this.data.type = 'pattern'
 			this.data.patternUrl = THREEx.ArToolkitContext.baseURL+'../data/data/patt.hiro'
-		}else if( this.data.preset === 'kanji' ){
+		} else if( this.data.preset === 'kanji' ){
 			this.data.type = 'pattern'
 			this.data.patternUrl = THREEx.ArToolkitContext.baseURL+'../data/data/patt.kanji'
+    } else if( this.data.preset === 'totem1' ){
+      alert('totem1')
+			this.data.type = 'pattern'
+			this.data.patternUrl = 'https://raichuk.github.io/ar-test/markers/totem1.patt'
 		}else {
 			console.assert( this.data.preset === '', 'illegal preset value '+this.data.preset)
 		}
