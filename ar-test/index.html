@@ -1,28 +1,16 @@
 <html>
-	<head>
+  <head>
 		<script src="/ar-test/js/aframe.min.js"></script>
 		<script src="/ar-test/js/aframe-ar.js"></script>
-	</head>
-
-	<body>
-		<a-scene>
-
-			<a-assets>
-        <video id="video" src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" loop crossorigin autoplay></video>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="myModelObj" src="/models/CC.obj"></a-asset-item>
+        <a-asset-item id="myModelMtl" src="/models/CC.mtl"></a-asset-item>
       </a-assets>
 
-			<a-marker-camera preset='totem1'></a-marker-camera>
-      <a-plane position='0 0 0' src='#video'></a-plane>
-
-		</a-scene>
-	</body>
-
-	<script>
-	window.addEventListener('click', function () {
-	  var v = document.querySelector('#video');
-		alert('Play')
-	  v.play();
-	});
-	</script>
-
+      <a-entity obj-model="obj: #myModelObj; mtl: #myModelMtl"></a-entity>
+    </a-scene>
+  </body>
 </html>
