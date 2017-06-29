@@ -1,0 +1,229 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl satelite
+Ka 0.000000 0.000000 0.000000
+Kd 0.580392 0.596078 0.600000
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/satelite.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl Metal_Rusted
+Ka 0.000000 0.000000 0.000000
+Kd 0.819608 0.478431 0.439216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Metal_Rusted.jpg
+
+newmtl _25
+Ka 0.000000 0.000000 0.000000
+Kd 0.847059 0.525490 0.486275
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_25.jpg
+
+newmtl Tile_Ceramic_Natural
+Ka 0.000000 0.000000 0.000000
+Kd 0.741176 0.705882 0.525490
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Tile_Ceramic_Natural.jpg
+
+newmtl Formica_Beige
+Ka 0.000000 0.000000 0.000000
+Kd 0.917647 0.890196 0.800000
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Formica_Beige.jpg
+
+newmtl Polished_Concrete_Old
+Ka 0.000000 0.000000 0.000000
+Kd 0.898039 0.898039 0.898039
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Polished_Concrete_Old.jpg
+
+newmtl _8
+Ka 0.000000 0.000000 0.000000
+Kd 0.482353 0.462745 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_8.jpg
+
+newmtl Chris_Shoe_Sole
+Ka 0.000000 0.000000 0.000000
+Kd 0.482353 0.462745 0.462745
+Ks 0.330000 0.330000 0.330000
+
+newmtl _4
+Ka 0.000000 0.000000 0.000000
+Kd 0.168627 0.160784 0.160784
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_4.jpg
+
+newmtl Concrete_Tile
+Ka 0.000000 0.000000 0.000000
+Kd 0.666667 0.639216 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Concrete_Tile.jpg
+
+newmtl Tile_Limestone_Large
+Ka 0.000000 0.000000 0.000000
+Kd 0.984314 0.956863 0.976471
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Tile_Limestone_Large.jpg
+
+newmtl _17
+Ka 0.000000 0.000000 0.000000
+Kd 0.349020 0.349020 0.349020
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_17.jpg
+
+newmtl _14
+Ka 0.000000 0.000000 0.000000
+Kd 0.549020 0.549020 0.549020
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_14.jpg
+
+newmtl _20
+Ka 0.000000 0.000000 0.000000
+Kd 0.341176 0.443137 0.517647
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_20.jpg
+
+newmtl _1
+Ka 0.000000 0.000000 0.000000
+Kd 0.364706 0.415686 0.439216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_1.jpg
+
+newmtl _2
+Ka 0.000000 0.000000 0.000000
+Kd 0.407843 0.462745 0.509804
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_2.jpg
+
+newmtl _2_1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.407843 0.462745 0.509804
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_2_1_.jpg
+
+newmtl _3
+Ka 0.000000 0.000000 0.000000
+Kd 0.407843 0.462745 0.509804
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_3.jpg
+
+newmtl _5
+Ka 0.000000 0.000000 0.000000
+Kd 0.364706 0.443137 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_5.jpg
+
+newmtl _5_1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.364706 0.443137 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_5_1_.jpg
+
+newmtl _6
+Ka 0.000000 0.000000 0.000000
+Kd 0.364706 0.443137 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_6.jpg
+
+newmtl _6_1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.364706 0.443137 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_6_1_.jpg
+
+newmtl Translucent_Glass_Sky_Reflection
+Ka 0.000000 0.000000 0.000000
+Kd 0.486275 0.541176 0.709804
+Ks 0.330000 0.330000 0.330000
+d 0.520000
+map_Kd legislatura/Translucent_Glass_Sky_Reflection.jpg
+
+newmtl _7
+Ka 0.000000 0.000000 0.000000
+Kd 0.156863 0.156863 0.200000
+Ks 0.330000 0.330000 0.330000
+d 0.990000
+map_Kd legislatura/_7.jpg
+
+newmtl Translucent_Glass_Corrugated
+Ka 0.000000 0.000000 0.000000
+Kd 0.549020 0.619608 0.564706
+Ks 0.330000 0.330000 0.330000
+d 0.800000
+map_Kd legislatura/Translucent_Glass_Corrugated.jpg
+
+newmtl Translucent_Glass_Tinted
+Ka 0.000000 0.000000 0.000000
+Kd 0.015686 0.482353 0.576471
+Ks 0.330000 0.330000 0.330000
+d 0.900000
+map_Kd legislatura/Translucent_Glass_Tinted.jpg
+
+newmtl _9
+Ka 0.000000 0.000000 0.000000
+Kd 0.549020 0.552941 0.560784
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_9.jpg
+
+newmtl _10
+Ka 0.000000 0.000000 0.000000
+Kd 0.639216 0.639216 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_10.jpg
+
+newmtl _12
+Ka 0.000000 0.000000 0.000000
+Kd 0.647059 0.658824 0.686275
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_12.jpg
+
+newmtl _13
+Ka 0.000000 0.000000 0.000000
+Kd 0.349020 0.419608 0.439216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_13.jpg
+
+newmtl _8_1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.482353 0.462745 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_8_1_.jpg
+
+newmtl _23
+Ka 0.000000 0.000000 0.000000
+Kd 0.196078 0.207843 0.184314
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_23.jpg
+
+newmtl _24
+Ka 0.000000 0.000000 0.000000
+Kd 0.031373 0.035294 0.047059
+Ks 0.330000 0.330000 0.330000
+d 0.910000
+map_Kd legislatura/_24.jpg
+
+newmtl _22
+Ka 0.000000 0.000000 0.000000
+Kd 0.639216 0.611765 0.611765
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_22.jpg
+
+newmtl _13_1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.349020 0.419608 0.439216
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/_13_1_.jpg
+
+newmtl Vegetation_Blur_03
+Ka 0.000000 0.000000 0.000000
+Kd 0.325490 0.447059 0.070588
+Ks 0.330000 0.330000 0.330000
+map_Kd legislatura/Vegetation_Blur_03.jpg
+
