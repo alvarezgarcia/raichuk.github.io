@@ -1945,6 +1945,79 @@ AFRAME.registerComponent('artoolkitmarker', {
       alert('totem18')
 			this.data.type = 'pattern'
 			this.data.patternUrl = '/external/patts/hitos/totem18.patt'
+
+  } else if( this.data.preset === 'turismo1' ){
+      alert('turismo1')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo1.patt'
+  } else if( this.data.preset === 'turismo2' ){
+      alert('turismo2')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo2.patt'
+  } else if( this.data.preset === 'turismo3' ){
+      alert('turismo3')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo3.patt'
+  } else if( this.data.preset === 'turismo4' ){
+      alert('turismo4')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo4.patt'
+  } else if( this.data.preset === 'turismo5' ){
+      alert('turismo5')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo5.patt'
+  } else if( this.data.preset === 'turismo6' ){
+      alert('turismo6')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo6.patt'
+  } else if( this.data.preset === 'turismo7' ){
+      alert('turismo7')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo7.patt'
+  } else if( this.data.preset === 'turismo8' ){
+      alert('turismo8')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo8.patt'
+  } else if( this.data.preset === 'turismo9' ){
+      alert('turismo9')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo9.patt'
+  } else if( this.data.preset === 'turismo10' ){
+      alert('turismo10')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo10.patt'
+  } else if( this.data.preset === 'turismo11' ){
+      alert('turismo11')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo11.patt'
+  } else if( this.data.preset === 'turismo12' ){
+      alert('turismo12')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo12.patt'
+  } else if( this.data.preset === 'turismo13' ){
+      alert('turismo13')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo13.patt'
+  } else if( this.data.preset === 'turismo14' ){
+      alert('turismo14')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo14.patt'
+  } else if( this.data.preset === 'turismo15' ){
+      alert('turismo15')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo15.patt'
+  } else if( this.data.preset === 'turismo16' ){
+      alert('turismo16')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo16.patt'
+  } else if( this.data.preset === 'turismo17' ){
+      alert('turismo17')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo17.patt'
+  } else if( this.data.preset === 'turismo18' ){
+      alert('turismo18')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/turismo/turismo18.patt'
   } else {
 			console.assert( this.data.preset === '', 'illegal preset value '+this.data.preset)
 	}

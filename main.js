@@ -36239,6 +36239,8 @@ var ARList = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'totem-list-container' },
@@ -36273,7 +36275,7 @@ var ARList = function (_Component) {
                   { border: true, style: { display: 'flex', boxSizing: 'border-box', alignItems: 'center', color: '#fff' } },
                   _react2.default.createElement(
                     'a',
-                    { href: '/external/html/hitos/' + totem.tagValue },
+                    { href: '/external/html/' + _this3.state.type + '/' + totem.tagValue },
                     'Elegir'
                   )
                 )
