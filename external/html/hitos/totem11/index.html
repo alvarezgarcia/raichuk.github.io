@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script src="/external/js/aframe.min.js"></script>
+		<script src="/external/js/aframe-ar.js"></script>
+	</head>
+
+	<body>
+		<a-scene>
+
+			<a-assets>
+        <video id="video" src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" loop crossorigin autoplay></video>
+      </a-assets>
+
+			<a-marker-camera preset='totem11'></a-marker-camera>
+      <a-plane position='0 0 0' src='#video'></a-plane>
+
+		</a-scene>
+	</body>
+
+	<script>
+    window.addEventListener('click', function () {
+      var v = document.querySelector('#video');
+      v.play();
+    });
+	</script>
+
+</html>

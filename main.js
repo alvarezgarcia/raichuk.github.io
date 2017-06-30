@@ -36273,7 +36273,7 @@ var ARList = function (_Component) {
                   { border: true, style: { display: 'flex', boxSizing: 'border-box', alignItems: 'center', color: '#fff' } },
                   _react2.default.createElement(
                     'a',
-                    { href: '#' },
+                    { href: '/external/html/hitos/' + totem.tagValue },
                     'Elegir'
                   )
                 )

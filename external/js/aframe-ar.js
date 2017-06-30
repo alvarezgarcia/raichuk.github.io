@@ -1877,9 +1877,77 @@ AFRAME.registerComponent('artoolkitmarker', {
       alert('totem1')
 			this.data.type = 'pattern'
 			this.data.patternUrl = '/external/patts/hitos/totem1.patt'
-		}else {
+    } else if( this.data.preset === 'totem2' ){
+      alert('totem2')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem2.patt'
+    } else if( this.data.preset === 'totem3' ){
+      alert('totem3')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem3.patt'
+    } else if( this.data.preset === 'totem4' ){
+      alert('totem4')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem4.patt'
+  } else if( this.data.preset === 'totem5' ){
+      alert('totem5')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem5.patt'
+  } else if( this.data.preset === 'totem6' ){
+      alert('totem6')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem6.patt'
+  } else if( this.data.preset === 'totem7' ){
+      alert('totem7')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem7.patt'
+  } else if( this.data.preset === 'totem8' ){
+      alert('totem8')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem8.patt'
+  } else if( this.data.preset === 'totem9' ){
+      alert('totem9')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem9.patt'
+  } else if( this.data.preset === 'totem10' ){
+      alert('totem10')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem10.patt'
+  } else if( this.data.preset === 'totem11' ){
+      alert('totem11')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem11.patt'
+  } else if( this.data.preset === 'totem12' ){
+      alert('totem12')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem12.patt'
+  } else if( this.data.preset === 'totem13' ){
+      alert('totem13')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem13.patt'
+  } else if( this.data.preset === 'totem14' ){
+      alert('totem14')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem14.patt'
+  } else if( this.data.preset === 'totem15' ){
+      alert('totem15')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem15.patt'
+  } else if( this.data.preset === 'totem16' ){
+      alert('totem16')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem16.patt'
+  } else if( this.data.preset === 'totem17' ){
+      alert('totem17')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem17.patt'
+  } else if( this.data.preset === 'totem18' ){
+      alert('totem18')
+			this.data.type = 'pattern'
+			this.data.patternUrl = '/external/patts/hitos/totem18.patt'
+  } else {
 			console.assert( this.data.preset === '', 'illegal preset value '+this.data.preset)
-		}
+	}
 		// actually init arMarkerControls
 		var artoolkitContext = this.el.sceneEl.systems.artoolkit.arToolkitContext
 		this.arMarkerControls = new THREEx.ArMarkerControls(artoolkitContext, this.el.object3D, this.data)
