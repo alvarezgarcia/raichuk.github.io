@@ -1,138 +1,39 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Creo Santiago - 2017</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-<head>
-    <title>Example 10.11 - Video texture - non canvas</title>
-		<script src="https://jeromeetienne.github.io/AR.js/three.js/examples/vendor/three.js/build/three.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="offline-plugin">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#181743">
+    <meta name="application-name" content="offline-plugin">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+
+    <script src="https://raichuk.github.io/ar-test/js/aframe.min.js"></script>
+    <script src="https://raichuk.github.io/ar-test/js/aframe-ar.js"></script>
 
     <style>
-        body {
-            /* set margin to 0 and overflow to hidden, to go fullscreen */
-            margin: 0;
-            overflow: hidden;
-        }
+      .leaflet-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
 
-<div id="Stats-output">
-</div>
-
-<video id="video" style="display: none; position: absolute; left: 15px; top: 75px;"
-       src="https://jeromeetienne.github.io/threex.videotexture/examples/videos/sintel.ogv" controls="true" autoplay="true"></video>
-
-<!-- Div which will hold the Output -->
-<div id="WebGL-output">
-</div>
-
-<!-- Javascript code that runs our Three.js examples -->
-<script type="text/javascript">
-
-    var texture;
-
-    // once everything is loaded, we run our Three.js stuff.
-    function init() {
-
-
-        // create a scene, that will hold all our elements such as objects, cameras and lights.
-        var scene = new THREE.Scene();
-
-        // create a camera, which defines where we're looking at.
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-        // create a render and set the size
-        var webGLRenderer = new THREE.WebGLRenderer();
-        webGLRenderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-        webGLRenderer.setSize(window.innerWidth, window.innerHeight);
-        webGLRenderer.shadowMapEnabled = true;
-
-        var video = document.getElementById('video');
-        texture = new THREE.VideoTexture(video);
-        var cube;
-
-
-        cube = createMesh(new THREE.BoxGeometry(22, 16, 0.2), "floor-wood.jpg");
-        cube.position.y = 2;
-        scene.add(cube);
-
-
-        // position and point the camera to the center of the scene
-        camera.position.x = 00;
-        camera.position.y = 1;
-        camera.position.z = 28;
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-        var ambiLight = new THREE.AmbientLight(0x141414);
-        scene.add(ambiLight);
-
-        var light = new THREE.DirectionalLight();
-        light.position.set(0, 30, 20);
-        scene.add(light);
-
-        // add the output of the renderer to the html element
-        document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
-
-        // call the render function
-        var step = 0;
-
-//        var polyhedron = createMesh(new THREE.PolyhedronGeometry(vertices, faces, controls.radius, controls.detail));
-
-        // setup the control gui
-        var controls = new function () {
-
-            this.showVideo = false;
-            this.rotate = false;
-
-            this.showCanvas = function () {
-                if (controls.showVideo) {
-                    $('#video').show();
-                } else {
-                    $('#video').hide();
-                }
-            }
-
-        };
-
-
-
-        render();
-
-        function createMesh(geom) {
-
-            var materialArray = [];
-            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
-            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
-            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
-            materialArray.push(new THREE.MeshBasicMaterial({color: 0x0051ba}));
-            materialArray.push(new THREE.MeshBasicMaterial({map: texture}));
-            materialArray.push(new THREE.MeshBasicMaterial({color: 0xff51ba}));
-            var faceMaterial = new THREE.MeshFaceMaterial(materialArray);
-
-
-            // create a multimaterial
-            var mesh = new THREE.Mesh(geom, faceMaterial);
-
-            return mesh;
-        }
-
-        function render() {
-
-            if (controls.rotate) {
-                cube.rotation.x += -0.01;
-                cube.rotation.y += -0.01;
-                cube.rotation.z += -0.01;
-            }
-
-
-            // render using requestAnimationFrame
-            requestAnimationFrame(render);
-            webGLRenderer.render(scene, camera);
-        }
-
-    }
-    window.onload = init;
-</script>
-
-</body>
+  <link href="/main.css" rel="stylesheet"></head>
+  <body>
+    <div id="app"></div>
+  <script type="text/javascript" src="/main.js"></script></body>
 </html>
