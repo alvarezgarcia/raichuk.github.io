@@ -3,6 +3,7 @@ CACHE MANIFEST
 #plugin:4.8.1
 
 CACHE:
+/markers-hitos.json
 /main.js
 /main.css
 /
