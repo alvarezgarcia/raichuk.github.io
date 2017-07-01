@@ -1,9 +1,7 @@
 CACHE MANIFEST
-#ver:2017-6-30 23:26:56
-#plugin:4.8.1
+#v0.01
 
 CACHE:
-/markers-hitos.json
+/*.json
 /main.js
 /main.css
-/
