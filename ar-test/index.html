@@ -5,28 +5,13 @@
 	</head>
 
 	<body>
-		<a-scene>
-
-			<a-assets>
-        <!--<video id="video" src="https://mayognaise.github.io/aframe-video-shader/basic/bbb.mp4" loop crossorigin autoplay></video>-->
-        <!--aa-->
-        <a-asset-item id="myModelObj" src="/ar-test/models/torres/Torres.obj"></a-asset-item>
-        <a-asset-item id="myModelMtl" src="/ar-test/models/torres/Torres.mtl"></a-asset-item>
-      </a-assets>
-
-			<a-marker-camera preset='hiro'></a-marker-camera>
-      <a-entity scale=".010 .010 .010" obj-model="obj: #myModelObj; mtl: #myModelMtl"></a-entity>
-      <!--<a-plane position='0 0 0' src='#video'></a-plane>-->
-
-		</a-scene>
+    <a-scene embedded arjs='sourceType: webcam;'>
+      <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+      <a-marker-camera preset='hiro'></a-marker-camera>
+    </a-scene>
 	</body>
 
 	<script>
-	window.addEventListener('click', function () {
-	  var v = document.querySelector('#video');
-		alert('Play')
-	  v.play();
-	});
 	</script>
 
 </html>
