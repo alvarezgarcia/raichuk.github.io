@@ -1367,9 +1367,9 @@
 				function o(e, n) {
 					var r = { seen: [], stylize: u };return arguments.length >= 3 && (r.depth = arguments[2]), arguments.length >= 4 && (r.colors = arguments[3]), g(n) ? r.showHidden = n : n && t._extend(r, n), x(r.showHidden) && (r.showHidden = !1), x(r.depth) && (r.depth = 2), x(r.colors) && (r.colors = !1), x(r.customInspect) && (r.customInspect = !0), r.colors && (r.stylize = i), s(r, e, r.depth);
 				}function i(e, t) {
-					var n = o.styles[t];return n ? "
-.colors[n][0] + "m" + e + "
-.colors[n][1] + "m" : e;
+					var n = o.styles[t];
+					
+					return n ? ".colors[n][0] + "m" + e + ".colors[n][1] + "m" : e;
 				}function u(e, t) {
 					return e;
 				}function a(e) {
