@@ -1369,7 +1369,7 @@
 				}function i(e, t) {
 					var n = o.styles[t];
 					
-					return n ? ".colors[n][0] + "m" + e + ".colors[n][1] + "m" : e;
+					return n ? ".colors[n][0] " + m + " e " + .colors[n][1] + "m" : e;
 				}function u(e, t) {
 					return e;
 				}function a(e) {
