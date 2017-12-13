@@ -44,27 +44,99 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
+	__webpack_require__(1);
+	module.exports = __webpack_require__(1);
 
-	var _pulquiMin = __webpack_require__(11);
-
-	var _App = __webpack_require__(13);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var miPulquiApp = (0, _pulquiMin.Pulqui)();
-	miPulquiApp.start(h(_App2.default, null), document.getElementById('pulqui-app'));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
+
+	var _pulquiMin = __webpack_require__(12);
+
+	var _App = __webpack_require__(14);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _config = __webpack_require__(19);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var markers = [];
+
+	window.addEventListener('initMap', function (_) {});
+
+	window.addEventListener('drawPoints', function (e) {
+		var _e$detail = e.detail,
+		    points = _e$detail.points,
+		    color = _e$detail.color;
+
+
+		var icon = L.icon({
+			iconUrl: '/imgs/markers/marker-' + color + '.png',
+			iconAnchor: [12, 40]
+		});
+
+		points.forEach(function (point) {
+
+			console.log(point);
+
+			var popupInfo = '\n\t\t\t<strong>' + point.nombre + '</strong>\n\t\t\t<p>' + point.direccion + '</p>\n\t\t\t<p>' + point.entidad + '</p>\n\t\t\t<a href=' + _config2.default.serverIp + '/#detalle/' + point.human_id + ' target="_blank">Detalle</a>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<a href=https://www.facebook.com/sharer/sharer.php?u=' + _config2.default.serverIp + '/#detalle/#' + point.human_id + ' class="share facebook">Facebook</a>\n\t\t\t<br />\n\t\t\t<a href=https://twitter.com/home?status=http://' + _config2.default.serverIp + '/#detalle/#{point.human_id}>Twitter</a>\n\t\t\t<br />\n\t\t\t<a href="whatsapp://send?text=http://' + _config2.default.serverIp + '/#detalle/#{point.human_id}" data-action="share/whatsapp/share">Whatsapp</a>';
+
+			var marker = {
+				info: point,
+				marker: L.marker([point.lat, point.lng], { icon: icon }).addTo(map).bindPopup(popupInfo)
+			};
+
+			markers.push(marker);
+		});
+	});
+
+	window.addEventListener('removePoints', function (e) {
+		var option = e.detail.option;
+
+		markers.forEach(function (m) {
+			var markerOption = m.info.entidad;
+			if (option.label === markerOption) {
+				map.removeLayer(m.marker);
+			}
+		});
+	});
+
+	window.addEventListener('removeAllPoints', function (_) {
+		markers.forEach(function (m) {
+			return map.removeLayer(m.marker);
+		});
+	});
+
+	window.addEventListener('setProvincia', function (_) {
+		map.setView(center, initialZoom);
+	});
+
+	window.addEventListener('setView', function (e) {
+		var _e$detail2 = e.detail,
+		    latlng = _e$detail2.latlng,
+		    zoom = _e$detail2.zoom;
+
+
+		map.setView(latlng, zoom);
+	});
+
+	var miPulquiApp = (0, _pulquiMin.Pulqui)();
+	miPulquiApp.start(h(_App2.default, null), document.getElementById('pulqui-app'));
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	
-	const createElement = __webpack_require__(2).createElement
-	const addPx = __webpack_require__(10)
+	const createElement = __webpack_require__(3).createElement
+	const addPx = __webpack_require__(11)
 
 	const parseValue = (prop, val) => typeof val === 'number' ? addPx(prop, val) : val
 	const kebab = (str) => str.replace(/([A-Z])/g, g => '-' + g.toLowerCase())
@@ -113,12 +185,12 @@
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var document = __webpack_require__(3)
-	var hyperx = __webpack_require__(5)
-	var onload = __webpack_require__(7)
+	var document = __webpack_require__(4)
+	var hyperx = __webpack_require__(6)
+	var onload = __webpack_require__(8)
 
 	var SVGNS = 'http://www.w3.org/2000/svg'
 	var XLINKNS = 'http://www.w3.org/1999/xlink'
@@ -272,12 +344,12 @@
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var topLevel = typeof global !== 'undefined' ? global :
 	    typeof window !== 'undefined' ? window : {}
-	var minDoc = __webpack_require__(4);
+	var minDoc = __webpack_require__(5);
 
 	var doccy;
 
@@ -296,16 +368,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var attrToProp = __webpack_require__(6)
+	var attrToProp = __webpack_require__(7)
 
 	var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
 	var ATTR_KEY = 5, ATTR_KEY_W = 6
@@ -382,11 +454,11 @@
 	        for (; i < parts.length; i++) {
 	          if (parts[i][0] === ATTR_VALUE || parts[i][0] === ATTR_KEY) {
 	            if (!cur[1][key]) cur[1][key] = strfn(parts[i][1])
-	            else cur[1][key] = concat(cur[1][key], parts[i][1])
+	            else parts[i][1]==="" || (cur[1][key] = concat(cur[1][key], parts[i][1]));
 	          } else if (parts[i][0] === VAR
 	          && (parts[i][1] === ATTR_VALUE || parts[i][1] === ATTR_KEY)) {
 	            if (!cur[1][key]) cur[1][key] = strfn(parts[i][2])
-	            else cur[1][key] = concat(cur[1][key], parts[i][2])
+	            else parts[i][2]==="" || (cur[1][key] = concat(cur[1][key], parts[i][2]));
 	          } else {
 	            if (key.length && !cur[1][key] && i === j
 	            && (parts[i][0] === CLOSE || parts[i][0] === ATTR_BREAK)) {
@@ -589,7 +661,7 @@
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	module.exports = attributeToProperty
@@ -614,13 +686,13 @@
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* global MutationObserver */
-	var document = __webpack_require__(3)
-	var window = __webpack_require__(8)
-	var assert = __webpack_require__(9)
+	var document = __webpack_require__(4)
+	var window = __webpack_require__(9)
+	var assert = __webpack_require__(10)
 	var watch = Object.create(null)
 	var KEY_ID = 'onloadid' + (new Date() % 9e6).toString(36)
 	var KEY_ATTR = 'data-' + KEY_ID
@@ -722,7 +794,7 @@
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var win;
@@ -742,7 +814,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	assert.notEqual = notEqual
@@ -770,7 +842,7 @@
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	/* The following list is defined in React's core */
@@ -816,7 +888,7 @@
 	};
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(h, module) {"use strict";
@@ -979,7 +1051,7 @@
 						} else if (k === u && T[1] === a) void 0 === T[2] || null === T[2] ? T[2] = "" : T[2] || (T[2] = w("", T[2])), Array.isArray(T[2][0]) ? q[2].push.apply(q[2], T[2]) : q[2].push(T[2]);else if (k === a) q[2].push(T[1]);else if (k !== v && k !== m) throw new Error("unhandled: " + k);
 					}if (C[2].length > 1 && /^\s*$/.test(C[2][0]) && C[2].shift(), C[2].length > 2 || 2 === C[2].length && /\S/.test(C[2][1])) throw new Error("multiple root elements must be wrapped in an enclosing tag");return Array.isArray(C[2][0]) && "string" == typeof C[2][0][0] && Array.isArray(C[2][0][2]) && (C[2][0] = e(C[2][0][0], C[2][0][1], C[2][0][2])), C[2][0];
 				};
-			};var w = (Object.prototype.hasOwnProperty, RegExp("^(" + ["area", "base", "basefont", "bgsound", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr", "!--", "animate", "animateTransform", "circle", "cursor", "desc", "ellipse", "feBlend", "feColorMatrix", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence", "font-face-format", "font-face-name", "font-face-uri", "glyph", "glyphRef", "hkern", "image", "line", "missing-glyph", "mpath", "path", "polygon", "polyline", "rect", "set", "stop", "tref", "use", "view", "vkern"].join("|") + ")(?:[.#][a-zA-Z0--￿_:-]+)*$"));
+			};var w = (Object.prototype.hasOwnProperty, RegExp("^(" + ["area", "base", "basefont", "bgsound", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr", "!--", "animate", "animateTransform", "circle", "cursor", "desc", "ellipse", "feBlend", "feColorMatrix", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence", "font-face-format", "font-face-name", "font-face-uri", "glyph", "glyphRef", "hkern", "image", "line", "missing-glyph", "mpath", "path", "polygon", "polyline", "rect", "set", "stop", "tref", "use", "view", "vkern"].join("|") + ")(?:[.#][a-zA-Z0-9-￿_:-]+)*$"));
 		}, function (e, t) {
 			function n(e) {
 				return function (t, n, o) {
@@ -1367,9 +1439,7 @@
 				function o(e, n) {
 					var r = { seen: [], stylize: u };return arguments.length >= 3 && (r.depth = arguments[2]), arguments.length >= 4 && (r.colors = arguments[3]), g(n) ? r.showHidden = n : n && t._extend(r, n), x(r.showHidden) && (r.showHidden = !1), x(r.depth) && (r.depth = 2), x(r.colors) && (r.colors = !1), x(r.customInspect) && (r.customInspect = !0), r.colors && (r.stylize = i), s(r, e, r.depth);
 				}function i(e, t) {
-					var n = o.styles[t];
-					
-					return n ? ".colors[n][0] " + m + " e " + .colors[n][1] + "m" : e;
+					var n = o.styles[t];return n ? "[" + o.colors[n][0] + "m" + e + "[" + o.colors[n][1] + "m" : e;
 				}function u(e, t) {
 					return e;
 				}function a(e) {
@@ -1686,10 +1756,10 @@
 		}]);
 	});
 	//# sourceMappingURL=pulqui.min.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(12)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)(module)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -1705,7 +1775,7 @@
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
@@ -1714,54 +1784,151 @@
 		value: true
 	});
 
-	var _yoYo = __webpack_require__(14);
+	var _yoYo = __webpack_require__(15);
 
 	var _yoYo2 = _interopRequireDefault(_yoYo);
 
-	var _pulquiMin = __webpack_require__(11);
+	var _CategoryPanel = __webpack_require__(18);
 
-	var _Home = __webpack_require__(17);
+	var _CategoryPanel2 = _interopRequireDefault(_CategoryPanel);
 
-	var _Home2 = _interopRequireDefault(_Home);
+	var _config = __webpack_require__(19);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _utils = __webpack_require__(20);
+
+	var _routing = __webpack_require__(21);
+
+	var _boxing = __webpack_require__(24);
+
+	var _boxing2 = _interopRequireDefault(_boxing);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	//Previene que el drawer de MDL se vaya en cada render
+	//Por algún motivo cuando hago upgradeDom me crea otro mdl-layout__container
+	//dentro del que ya existe.
+	//Por lo tanto, tomo el superior, lo vacio y pongo el contenido del nuevo.
+	//Al reemplazarlo completamente, el update de yo yo pierde sentido.. pero bue.
+	function keepDrawerVisible() {
+		componentHandler.upgradeDom();
+
+		var nestedLayouts = document.getElementsByClassName('mdl-layout__container');
+		var upperMost = nestedLayouts[0];
+		var innerMost = nestedLayouts[nestedLayouts.length - 1];
+
+		var content = innerMost.firstChild;
+
+		var updatedLayout = document.createElement('div').append(content);
+
+		upperMost.removeChild(upperMost.firstChild);
+		upperMost.append(content);
+
+		var drawer = document.getElementById('drawer');
+		var obfuscator = document.getElementsByClassName('mdl-layout__obfuscator')[0];
+
+		drawer.className = 'mdl-layout__drawer is-visible';
+		obfuscator.className = 'mdl-layout__obfuscator is-visible';
+	}
 
 	//El componente PulquiContainer es la interfaz en MDL que engloba la informacion variable
 	function PulquiContainer(props) {
 
-		function render() {
+		function render(state) {
+
 			return h(
 				'div',
-				null,
-				h(
-					'section',
-					{ style: 'background-color: #9b00d1', 'class': 'hero is-primary' },
+				{ 'class': 'mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header' },
+				props.modalEnabled ? h(
+					'div',
+					{ 'class': 'modal is-active' },
+					h('div', { 'class': 'modal-background' }),
 					h(
 						'div',
-						{ 'class': 'hero-body' },
+						{ 'class': 'modal-card' },
 						h(
-							'div',
-							{ 'class': 'container' },
+							'header',
+							{ 'class': 'modal-card-head' },
 							h(
-								'h1',
-								{ 'class': 'title' },
-								'Inventario'
+								'p',
+								{ 'class': 'modal-card-title' },
+								'Modal title'
+							),
+							h('button', { onclick: props.handleModalClose, 'class': 'delete', 'aria-label': 'close' })
+						),
+						h('section', { 'class': 'modal-card-body' }),
+						h(
+							'footer',
+							{ 'class': 'modal-card-foot' },
+							h(
+								'button',
+								{ 'class': 'button is-success' },
+								'Save changes'
 							),
 							h(
-								'h2',
-								{ 'class': 'subtitle' },
-								'Carga rapida'
+								'button',
+								{ 'class': 'button' },
+								'Cancel'
 							)
 						)
 					)
-				),
-				h('br', null),
+				) : null,
 				h(
-					'div',
-					{ 'class': 'container is-fullhd' },
+					'header',
+					{ 'class': 'mdl-layout__header mapa-doncel-template-header' },
 					h(
 						'div',
-						{ 'class': 'notification' },
+						{ 'class': 'mdl-layout__header-row' },
+						h(
+							'div',
+							null,
+							h(
+								'div',
+								{ 'class': 'mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right' },
+								h(
+									'div',
+									{ 'class': 'mdl-textfield__expandable-holder' },
+									h('input', { 'class': 'mdl-textfield__input', type: 'text', name: 'sample', id: 'fixed-header-drawer-exp' })
+								)
+							)
+						),
+						h('div', { 'class': 'mdl-layout-spacer' }),
+						h(
+							'span',
+							{ className: 'mdl-layout-title' },
+							props.title
+						)
+					)
+				),
+				h(
+					'div',
+					{ id: 'drawer', 'class': 'mdl-layout__drawer' },
+					h(
+						'nav',
+						{ style: 'padding-left: 10px; padding-right: 10px', 'class': 'mdl-navigation' },
+						h(_CategoryPanel2.default, { categoryList: props.categoryList,
+							municipiosList: props.municipiosList,
+							idMunicipioSelected: props.idMunicipioSelected,
+							handleCategoryClick: props.handleCategoryClick,
+							handleCategoryClose: props.handleCategoryClose,
+							handleMunicipioClick: props.handleMunicipioClick,
+							handleMunicipioReset: props.handleMunicipioReset,
+							handleSearchInput: props.handleSearchInput,
+							handleNearMe: props.handleNearMe,
+							filters: props.filters,
+							searchInput: props.searchInput
+						})
+					)
+				),
+				h(
+					'main',
+					{ 'class': 'mdl-layout__content' },
+					h(
+						'div',
+						{ 'class': 'page-content' },
 						h(
 							'main',
 							{ id: 'pulqui-container' },
@@ -1772,7 +1939,9 @@
 			);
 		}
 
-		var component = render();
+		var state = {};
+
+		var component = render(state);
 		return component;
 	}
 
@@ -1781,25 +1950,577 @@
 	//y este parametro es el componente <Home>
 	function App(props) {
 
-		function render() {
+		function getCoords() {
+			event.preventDefault();
 
-			return h(PulquiContainer, { component: h(_Home2.default, null) });
+			/*
+	  navigator.geolocation.getCurrentPosition( (pos) => {
+	  	const lat = pos.coords.latitude
+	  	const lng = pos.coords.longitude
+	  		fetch(`${config.reverseGeocode}/${lat}/${lng}`)
+	  	.then(jsonResponse => jsonResponse.json() )
+	  	.then(responseReverseGeocode => {
+	  		if(!responseReverseGeocode.ok) return
+	  			const found = state.municipiosList.find( m =>
+	  				m.nombre.toUpperCase() === responseReverseGeocode.partido
+	  		)
+	  			if(!found) return alert(`No se encontraron instituciones en ${responseReverseGeocode.partido}`)
+	  			nearMe(responseReverseGeocode.partido)
+	  	})
+	  	})
+	  */
+			nearMe(state.municipioInUrl);
 		}
 
-		var component = render();
+		function dispatchDraw(points, label, icon) {
+			var custom = new CustomEvent('drawPoints', {
+				detail: {
+					points: points,
+					color: icon
+				}
+			});
+
+			window.dispatchEvent(custom);
+
+			//TODO: REVEER ESTO
+			var newCategoryList = state.categoryList.map(function (category) {
+				var found = category.subLabels.find(function (subCategory) {
+					return subCategory.label === label;
+				});
+
+				if (found) {
+					var subcategory = category.subLabels.find(function (subLabel) {
+						return subLabel.label === label;
+					});
+					subcategory.selected = true;
+				}
+
+				return category;
+			});
+
+			state.categoryList = newCategoryList;
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			//componentHandler.upgradeDom()
+		}
+
+		function handleInput(e) {
+			var searchText = e.target.value.toUpperCase();
+
+			var originalPoints = state.municipio ? state.entries.filter(function (e) {
+				return e.partido === state.municipio.toUpperCase();
+			}) : state.entries;
+
+			var filteredPoints = originalPoints.filter(function (p) {
+				return p.nombre.toUpperCase().includes(searchText) || p.direccion.toUpperCase().includes(searchText);
+			});
+
+			var points = state.municipio ? filterPointsByMunicipio(filteredPoints, state.municipio) : filteredPoints;
+
+			var labels = [].concat(_toConsumableArray(new Set(points.map(function (p) {
+				return p.entidad;
+			}))));
+
+			window.dispatchEvent(new Event('removeAllPoints'));
+			labels.forEach(function (label) {
+				var pointsByLabel = points.filter(function (p) {
+					return p.entidad === label;
+				});
+				var color = pointsByLabel[0].color;
+
+				return dispatchDraw(pointsByLabel, label, color);
+			});
+		}
+
+		function handleModalClose() {
+			state.modalEnabled = false;
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+		}
+
+		function handleClose(option) {
+			var label = option.label;
+
+			var newCategoryList = state.categoryList.map(function (category) {
+				var found = category.subLabels.find(function (subCategory) {
+					return subCategory.label === label;
+				});
+
+				if (found) {
+					var subcategory = category.subLabels.find(function (subLabel) {
+						return subLabel.label === label;
+					});
+					subcategory.selected = false;
+				}
+
+				return category;
+			});
+
+			state.categoryList = newCategoryList;
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			//componentHandler.upgradeDom()
+
+			var custom = new CustomEvent('removePoints', {
+				detail: {
+					option: option
+				}
+			});
+
+			return window.dispatchEvent(custom);
+		}
+
+		function filterPointsByMunicipio(allPoints, municipio) {
+			var colorTable = [{
+				entidad: 'Servicio Zonal',
+				color: 'is-warning'
+			}, {
+				entidad: 'Servicio Local',
+				color: 'is-warning'
+			}, {
+				entidad: 'Jefatura Distrital',
+				color: 'is-primary'
+			}, {
+				entidad: 'Hospital Municipal',
+				color: 'is-danger'
+			}, {
+				entidad: 'Hospital Provincial',
+				color: 'is-danger'
+			}, {
+				entidad: 'Centros Atencion Primaria de la Salud',
+				color: 'is-danger'
+			}, {
+				entidad: 'Comisaría de la Mujer y la Familia',
+				color: 'is-info'
+			}, {
+				entidad: 'Atención a la Víctima',
+				color: 'is-info'
+			}, {
+				entidad: 'Otros',
+				color: 'is-success'
+			}, {
+				entidad: 'Instituciones',
+				color: 'is-dark'
+			}, {
+				entidad: 'Responsables',
+				color: 'is-link'
+			}];
+
+			var filtered = allPoints.filter(function (point) {
+				return point.partido === municipio.toUpperCase();
+			}).map(function (point) {
+				var color = colorTable.find(function (color) {
+					return color.entidad === point.entidad;
+				});
+				return Object.assign({}, point, { color: color.color });
+			});
+
+			return filtered;
+		}
+
+		function filterPointsByMunicipioAndOption(allPoints, municipio, option) {
+			var filtered = allPoints.filter(function (point) {
+				return point.entidad === option && point.partido === municipio.toUpperCase();
+			});
+
+			return filtered;
+		}
+
+		//TODO: REHACER ESTO
+		function cleanDrawer() {
+			state.categoryList.forEach(function (category) {
+				category.subLabels.forEach(function (subCategory) {
+					subCategory.selected = false;
+				});
+			});
+
+			return state.categoryList;
+		}
+
+		function nearMe(municipio) {
+			window.dispatchEvent(new Event('removeAllPoints'));
+
+			state.categoryList = cleanDrawer();
+			state.municipio = municipio;
+
+			var points = filterPointsByMunicipio(state.entries, municipio);
+			if (!municipio) {
+				window.dispatchEvent(new Event('setProvincia'));
+				//state.searchEnabled = true
+			} else {
+				var setViewEvent = new CustomEvent('setView', {
+					detail: {
+						latlng: points[0],
+						zoom: 12
+					}
+				});
+				window.dispatchEvent(setViewEvent);
+				//state.searchEnabled = false
+			}
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			setTimeout(function () {
+				var labels = [].concat(_toConsumableArray(new Set(points.map(function (p) {
+					return p.entidad;
+				}))));
+
+				labels.forEach(function (label) {
+					var pointsByLabel = points.filter(function (p) {
+						return p.entidad === label;
+					});
+					var color = pointsByLabel[0].color;
+
+					return dispatchDraw(pointsByLabel, label, color);
+				});
+			}, 250);
+		}
+
+		function handleMunicipioChange(e) {
+			var municipio = e.target.value;
+			window.dispatchEvent(new Event('removeAllPoints'));
+
+			state.categoryList = cleanDrawer();
+			state.municipio = municipio;
+
+			var points = filterPointsByMunicipio(state.entries, municipio);
+			if (!municipio) {
+				window.dispatchEvent(new Event('setProvincia'));
+				//state.searchEnabled = true
+			} else {
+				var setViewEvent = new CustomEvent('setView', {
+					detail: {
+						latlng: points[0],
+						zoom: 12
+					}
+				});
+				window.dispatchEvent(setViewEvent);
+				//state.searchEnabled = false
+			}
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			setTimeout(function () {
+				var labels = [].concat(_toConsumableArray(new Set(points.map(function (p) {
+					return p.entidad;
+				}))));
+
+				labels.forEach(function (label) {
+					var pointsByLabel = points.filter(function (p) {
+						return p.entidad === label;
+					});
+					var color = pointsByLabel[0].color;
+
+					return dispatchDraw(pointsByLabel, label, color);
+				});
+			}, 250);
+		}
+
+		function handleNearMe() {
+			event.preventDefault();
+
+			var municipioInfo = state.municipiosList.find(function (m) {
+				return m.nombre.toUpperCase() === window.box.municipio.toUpperCase();
+			});
+			if (!municipioInfo) return alert('No se encontraron instituciones para ' + window.box.municipio);
+
+			var fakeEventObject = {
+				target: {
+					value: municipioInfo.id.toString()
+				}
+			};
+
+			console.log(fakeEventObject);
+			return handleMunicipioClick(fakeEventObject);
+		}
+
+		function handleSearchInput(e) {
+			var value = e.target.value;
+
+			var municipioSelected = state.municipiosList.find(function (m) {
+				return m.id === state.idMunicipioSelected;
+			});
+
+			if (state.idMunicipioSelected === -1 && value) {
+				window.box.entries = window.box.allEntries.filter(function (et) {
+					return et.entidad.toUpperCase().includes(value.toUpperCase());
+				});
+				state.categoryList = [];
+			} else if (state.idMunicipioSelected === -1 && !value) {
+				window.box.entries = [];
+				state.categoryList = state.allCategories;
+			} else if (state.idMunicipioSelected !== -1 && value) {
+				window.box.entries = window.box.entries.filter(function (et) {
+					return et.entidad.toUpperCase().includes(value.toUpperCase());
+				});
+			} else if (state.idMunicipioSelected !== -1 && !value) {
+				window.box.entries = window.box.allEntries.filter(function (e) {
+					return e.partido === municipioSelected.nombre.toUpperCase();
+				});
+			}
+
+			window.box.draw = true;
+			console.log(state.idMunicipioSelected, window.box.entries);
+
+			state.searchInput = value;
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+		}
+
+		function handleMunicipioReset() {
+			var fakeEventObject = {
+				target: {
+					value: "-1"
+				}
+			};
+
+			handleMunicipioClick(fakeEventObject);
+		}
+
+		function handleMunicipioClick(e) {
+			var value = parseInt(e.target.value);
+			var municipioSelected = state.municipiosList.find(function (m) {
+				return m.id === value;
+			});
+
+			state.idMunicipioSelected = value;
+			state.title = municipioSelected ? municipioSelected.nombre : '';
+
+			window.box.entries = state.idMunicipioSelected === -1 ? [] : window.box.allEntries.filter(function (e) {
+				return e.partido === municipioSelected.nombre.toUpperCase();
+			});
+
+			state.filters = state.idMunicipioSelected !== -1 ? (0, _utils.uniq)(window.box.entries.map(function (e) {
+				return e.entidad;
+			})) : [];
+
+			var tempCategoryList = state.allCategories.filter(function (cat) {
+				var subLabels = cat.subLabels.map(function (sl) {
+					return sl.label;
+				});
+				var ret = state.filters.filter(function (filter) {
+					return subLabels.indexOf(filter) !== -1;
+				});
+
+				return ret.length > 0;
+			}).map(function (cat) {
+
+				var newSubLabels = cat.subLabels.filter(function (sl) {
+					return state.filters.indexOf(sl.label) !== -1;
+				});
+
+				return Object.assign({}, cat, { subLabels: newSubLabels });
+			});
+
+			state.categoryList = tempCategoryList.length < 1 ? state.allCategories : tempCategoryList;
+
+			window.box.draw = true;
+
+			if (state.idMunicipioSelected === -1) window.box.zoomInicial = true;else window.box.zoomMunicipio = true;
+
+			state.searchInput = '';
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			componentHandler.upgradeDom();
+
+			if (window.box.entries.length < 1) return alert('No se encontraron instituciones para ' + municipioSelected.nombre);
+		}
+
+		function handleCategoryClose(option) {
+			var label = option.label;
+
+
+			state.filters = state.filters.filter(function (fl) {
+				return fl !== label;
+			});
+			state.searchInput = '';
+
+			window.box.entries = window.box.entries.filter(function (e) {
+				return e.entidad !== label;
+			});
+			window.box.draw = true;
+
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			keepDrawerVisible();
+		}
+
+		function handleCategoryClick(option) {
+			var label = option.label,
+			    color = option.icon;
+
+
+			if (state.filters.find(function (f) {
+				return f === label;
+			})) return;
+			state.filters.push(label);
+
+			if (state.idMunicipioSelected === -1) {
+				var alreadyDrawed = window.box.entries.length === 0 ? window.box.allEntries.filter(function (et) {
+					return et.entidad === label;
+				}) : window.box.entries;
+				window.box.entries = alreadyDrawed.concat(window.box.allEntries.filter(function (et) {
+					return et.entidad === label;
+				}));
+
+				window.box.draw = true;
+			} else {
+
+				var municipioSelected = state.municipiosList.find(function (m) {
+					return m.id === state.idMunicipioSelected;
+				});
+
+				var _alreadyDrawed = window.box.entries;
+				window.box.entries = _alreadyDrawed.concat(window.box.allEntries.filter(function (et) {
+					return et.entidad === label && et.partido === municipioSelected.nombre.toUpperCase();
+				}));
+			}
+
+			window.box.draw = true;
+			var updated = render(state);
+			_yoYo2.default.update(component, updated);
+
+			keepDrawerVisible();
+		}
+
+		function render(state) {
+			var currentRoute = window.location.pathname + window.location.hash;
+			var component = (0, _routing.route2Component)(currentRoute);
+
+			return h(PulquiContainer, { component: component,
+				idMunicipioSelected: state.idMunicipioSelected,
+				title: state.title,
+				municipiosList: state.municipiosList,
+				categoryList: state.categoryList,
+				filters: state.filters,
+				searchInput: state.searchInput,
+				handleMunicipioClick: handleMunicipioClick,
+				handleMunicipioReset: handleMunicipioReset,
+				handleCategoryClick: handleCategoryClick,
+				handleCategoryClose: handleCategoryClose,
+				handleSearchInput: handleSearchInput,
+				handleNearMe: handleNearMe
+			});
+		}
+
+		window.box = new _boxing2.default();
+
+		var state = {};
+		state.allCategories = [];
+		state.categoryList = [];
+		state.municipiosList = [];
+		state.title = "";
+		state.idMunicipioSelected = -1;
+		state.filters = [];
+		state.searchInput = "";
+
+		fetch(_config2.default.apiMenu).then(function (jsonResponse) {
+			return jsonResponse.json();
+		}).then(function (categoryList) {
+
+			fetch(_config2.default.apiEntries).then(function (jsonResponse) {
+				return jsonResponse.json();
+			}).then(function (entries) {
+
+				fetch(_config2.default.apiMunicipios).then(function (jsonResponse) {
+					return jsonResponse.json();
+				}).then(function (municipiosList) {
+
+					window.box.allEntries = entries;
+					window.box.entries = [];
+
+					state.allCategories = categoryList;
+					state.categoryList = state.allCategories;
+
+					state.municipiosList = municipiosList;
+
+					var updated = render(state);
+					_yoYo2.default.update(component, updated);
+				});
+			});
+		});
+
+		var component = render(state);
 		return component;
+
+		/*
+	 function _render(state) {
+	 		
+	 	const homeComponent = <Home counter={state.counter} 
+	 															points={state.points} 
+	 															store={props.store} />
+	 		return(
+	 		<PulquiContainer 	getCoords={getCoords}
+	 											modalEnabled={state.modalEnabled}
+	 											searchEnabled={state.searchEnabled}
+	 											categoryList={state.categoryList}
+	 											municipiosList={state.municipiosList}
+	 											municipioSelected={state.municipioInUrl}
+	 											handleMenuClick={handleMenuClick}
+	 											handleClose={handleClose}
+	 											handleModalClose={handleModalClose}
+	 											handleMunicipioChange={handleMunicipioChange}
+	 											handleInput={handleInput}
+	 											component={ homeComponent }/>
+	 	)
+	  }
+	 	const currentRoute = window.location.pathname + window.location.hash
+	 	let state = {}
+	 state.counter = 0
+	 state.searchEnabled = true
+	 state.modalEnabled = false
+	 state.categoryList = []
+	 state.points = []
+	 state.municipio = undefined
+	 state.municipioInUrl = currentRoute !== '/'? currentRoute.split("/#municipio/")[1].trim(): ''
+	 state.municipiosList = []
+	 
+	 fetch(config.apiMenu)
+	 	.then(jsonResponse => jsonResponse.json() )
+	 	.then(responseMenu => {
+	 			fetch(config.apiEntries)
+	 		.then(jsonResponse => jsonResponse.json() )
+	 		.then(responseEntries => {
+	 				fetch(config.apiMunicipios)
+	 			.then(jsonResponse => jsonResponse.json() )
+	 			.then(responseMunicipios => {
+	 					state.municipiosList = responseMunicipios
+	 				state.entries = responseEntries
+	 				state.categoryList = responseMenu
+	 					state.counter = state.counter + 1
+	 					const updated = render(state)
+	 				yo.update(component, updated)
+	 					componentHandler.upgradeDom()
+	 				window.dispatchEvent(new Event('initMap'))
+	 				})
+	 			
+	 		})
+	 		
+	 	})
+	 	const component = render(state)
+	 return component
+	 */
 	}
 
 	exports.default = App;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var bel = __webpack_require__(2) // turns template tag into DOM elements
-	var morphdom = __webpack_require__(15) // efficiently diffs + morphs two DOM elements
-	var defaultEvents = __webpack_require__(16) // default events to be copied when dom elements update
+	var bel = __webpack_require__(3) // turns template tag into DOM elements
+	var morphdom = __webpack_require__(16) // efficiently diffs + morphs two DOM elements
+	var defaultEvents = __webpack_require__(17) // default events to be copied when dom elements update
 
 	module.exports = bel
 
@@ -1842,7 +2563,7 @@
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -2530,7 +3251,7 @@
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	module.exports = [
@@ -2572,79 +3293,6 @@
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-			value: true
-	});
-
-	var _yoYo = __webpack_require__(14);
-
-	var _yoYo2 = _interopRequireDefault(_yoYo);
-
-	var _RecordButton = __webpack_require__(18);
-
-	var _RecordButton2 = _interopRequireDefault(_RecordButton);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function Home(props) {
-
-			function handleClick() {
-					console.log('Click');
-
-					var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-					var recognition = new SpeechRecognition();
-
-					recognition.lang = 'en-US';
-					recognition.interimResults = false;
-					recognition.maxAlternatives = 1;
-
-					recognition.start();
-
-					recognition.addEventListener('speechstart', function () {
-							console.log('Speech has been detected.');
-					});
-
-					recognition.addEventListener('result', function (e) {
-							console.log('Result has been detected.');
-
-							var last = e.results.length - 1;
-							var text = e.results[last][0].transcript;
-
-							outputYou.textContent = text;
-					});
-
-					recognition.addEventListener('speechend', function () {
-							recognition.stop();
-					});
-
-					recognition.addEventListener('error', function (e) {
-							console.log('Error: ' + e.error);
-					});
-			}
-
-			function render(state) {
-					return h(
-							'div',
-							{ id: 'home' },
-							h(_RecordButton2.default, { handleClick: handleClick })
-					);
-			}
-
-			var state = {};
-
-			var component = render(state);
-			return component;
-	}
-
-	exports.default = Home;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2653,17 +3301,162 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	function RecordButton(props) {
+	function Category(props) {
+
+		return h(
+			"ul",
+			{ "class": "menu-list" },
+			h(
+				"li",
+				null,
+				h(
+					"a",
+					null,
+					props.label
+				),
+				h(
+					"ul",
+					null,
+					props.subLabels.map(function (each) {
+						var li = props.filters.find(function (filter) {
+							return filter === each.label;
+						}) ? h(
+							"li",
+							null,
+							h(
+								"div",
+								{ style: "padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;", "class": "notification " + each.icon },
+								h("button", { onclick: function onclick() {
+										return props.handleCategoryClose(each);
+									}, "class": "delete" }),
+								h(
+									"a",
+									{ onclick: function onclick() {
+											return props.handleCategoryClick(each);
+										} },
+									each.label
+								)
+							)
+						) : h(
+							"li",
+							null,
+							h(
+								"a",
+								{ onclick: function onclick() {
+										return props.handleCategoryClick(each);
+									} },
+								each.label
+							)
+						);
+
+						return li;
+					})
+				)
+			)
+		);
+	}
+
+	function CategoryPanel(props) {
 
 		function render() {
+
 			return h(
-				"a",
-				{ style: "display: flex; flex-direction: row; justify-content: center;", "class": "button is-large", onclick: props.handleClick },
+				"aside",
+				{ "class": "menu" },
+				window.box.municipio ? h(
+					"p",
+					{ "class": "menu-label" },
+					"Ubicaci\xF3n",
+					h(
+						"a",
+						{ href: "#", onclick: props.handleNearMe, style: "width: 100%", "class": "button is-success" },
+						"Cerca de m\xED"
+					)
+				) : null,
 				h(
-					"span",
-					{ "class": "icon is-large" },
-					h("i", { "class": "fa fa-microphone" })
-				)
+					"p",
+					{ "class": "menu-label" },
+					"Buscador",
+					h(
+						"div",
+						{ "class": "control has-icons-left" },
+						h("input", { oninput: props.handleSearchInput, "class": "input", value: props.searchInput, placeholder: "..." }),
+						h(
+							"span",
+							{ "class": "icon is-small is-left" },
+							h("i", { "class": "fa fa-search" })
+						)
+					)
+				),
+				h(
+					"p",
+					{ "class": "menu-label" },
+					"Municipios",
+					h(
+						"div",
+						{ "class": "field" },
+						h(
+							"div",
+							{ "class": "control" },
+							h(
+								"div",
+								{ "class": "select" },
+								h(
+									"div",
+									{ style: "display: flex; flex-direction: row-reverse; justify-content: space-evenly" },
+									h(
+										"select",
+										{ style: props.idMunicipioSelected === -1 ? "width: 100%" : "width: 70%", onchange: props.handleMunicipioClick },
+										props.idMunicipioSelected !== -1 ? h(
+											"option",
+											{ value: "-1" },
+											"Seleccione..."
+										) : h(
+											"option",
+											{ selected: "selected" },
+											"Seleccione..."
+										),
+										props.municipiosList.map(function (municipio) {
+											var optionEl = municipio.id === props.idMunicipioSelected ? h(
+												"option",
+												{ value: municipio.id, selected: "selected" },
+												municipio.nombre
+											) : h(
+												"option",
+												{ value: municipio.id },
+												municipio.nombre
+											);
+
+											return optionEl;
+										})
+									),
+									props.idMunicipioSelected !== -1 ? h(
+										"a",
+										{ style: "width: 25%", "class": "button is-link", onclick: props.handleMunicipioReset },
+										h(
+											"span",
+											{ "class": "icon is-small" },
+											h("i", { "class": "fa fa-times" })
+										)
+									) : null
+								)
+							)
+						)
+					)
+				),
+				h(
+					"p",
+					{ "class": "menu-label" },
+					"Categorias"
+				),
+				props.categoryList.map(function (each) {
+					return h(Category, { label: each.label,
+						filters: props.filters,
+						subLabels: each.subLabels,
+						handleCategoryClick: props.handleCategoryClick,
+						searchInput: props.searchInput,
+						handleCategoryClose: props.handleCategoryClose });
+				})
 			);
 		}
 
@@ -2671,8 +3464,344 @@
 		return component;
 	}
 
-	exports.default = RecordButton;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	exports.default = CategoryPanel;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	//const serverIp = 'http://localhost:8090'
+	var serverIp = 'http://tresbanderas.duckdns.org:8008';
+
+	exports.default = {
+		serverIp: serverIp,
+		apiMenu: serverIp + '/api/menu-structure',
+		apiEntries: serverIp + '/api/entries-map',
+		apiMunicipios: serverIp + '/api/municipios',
+		reverseGeocode: serverIp + '/api/coords-to-muni'
+	};
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	function uniq(arr) {
+
+		var ret = arr.reduce(function (acc, val) {
+			if (acc.indexOf(val) >= 0) return acc;
+			return acc.concat(val);
+		}, []);
+
+		return ret;
+	}
+
+	//TODO: Traer esta lista del server
+	function entidad2Color(entidad) {
+		var entidadColors = [{
+			entidad: 'Servicio Zonal',
+			color: 'is-warning'
+		}, {
+			entidad: 'Servicio Local',
+			color: 'is-warning'
+		}, {
+			entidad: 'Jefatura Distrital',
+			color: 'is-primary'
+		}, {
+			entidad: 'Hospital Municipal',
+			color: 'is-danger'
+		}, {
+			entidad: 'Hospital Provincial',
+			color: 'is-danger'
+		}, {
+			entidad: 'Centros Atencion Primaria de la Salud',
+			color: 'is-danger'
+		}, {
+			entidad: 'Comisaría de la Mujer y la Familia',
+			color: 'is-info'
+		}, {
+			entidad: 'Atención a la Víctima',
+			color: 'is-info'
+		}, {
+			entidad: 'Otros',
+			color: 'is-success'
+		}, {
+			entidad: 'Instituciones',
+			color: 'is-dark'
+		}, {
+			entidad: 'Responsables',
+			color: 'is-link'
+		}];
+
+		var entidadFound = entidadColors.find(function (ec) {
+			return ec.entidad === entidad;
+		});
+		return entidadFound.color;
+	}
+
+	exports.uniq = uniq;
+	exports.entidad2Color = entidad2Color;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.route2Component = undefined;
+
+	var _pulquiMin = __webpack_require__(12);
+
+	var _Home = __webpack_require__(22);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_pulquiMin.router.on('/', function (params) {
+		return h(_Home2.default, null);
+	});
+	_pulquiMin.router.on('/#municipio/:municipio', function (params) {
+		return h(_Home2.default, { municipio: params.municipio.toUpperCase() });
+	});
+
+	function municipioRoute(route) {
+		var municipio = route.split('/')[2];
+
+		return h(_Home2.default, { municipio: municipio.toUpperCase() });
+	}
+
+	function route2Component(route) {
+		console.log('CR ', route);
+
+		var municipioPrefix = new RegExp(/^\/#municipio.*/);
+
+		var component = route.match(municipioPrefix) ? municipioRoute(route) : route === '/' ? h(_Home2.default, null) : h(_Home2.default, null);
+
+		return component;
+	}
+
+	exports.route2Component = route2Component;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _Map = __webpack_require__(23);
+
+	var _Map2 = _interopRequireDefault(_Map);
+
+	var _yoYo = __webpack_require__(15);
+
+	var _yoYo2 = _interopRequireDefault(_yoYo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Home(props) {
+
+		function render(state) {
+			return h(
+				'div',
+				{ id: 'home' },
+				h(_Map2.default, { draw: window.box.draw,
+					zoomMunicipio: window.box.zoomMunicipio,
+					zoomInicial: window.box.zoomInicial
+				})
+			);
+		}
+
+		window.box.municipio = props.municipio;
+
+		var state = {};
+
+		var component = render(state);
+		return component;
+	}
+
+	exports.default = Home;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(h) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _yoYo = __webpack_require__(15);
+
+	var _yoYo2 = _interopRequireDefault(_yoYo);
+
+	var _config = __webpack_require__(19);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _utils = __webpack_require__(20);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var center = [-37.208111171152446, -59.47483062744141];
+	var initialZoom = 7;
+	var municipioZoom = 12;
+
+	function Map(props) {
+
+		function setInitialView(center, initialZoom) {
+			window.box.map.setView(center, initialZoom);
+
+			window.box.zoomInicial = false;
+			window.box.zoomMunicipio = false;
+		}
+
+		function setView(latlng, zoom) {
+			window.box.map.setView(latlng, zoom);
+
+			window.box.zoomInicial = false;
+			window.box.zoomMunicipio = false;
+		}
+
+		function cleanPoints(points) {
+			window.box.markers.forEach(function (m) {
+				return window.box.map.removeLayer(m.marker);
+			});
+		}
+
+		function drawPoints(points) {
+
+			cleanPoints();
+
+			points.forEach(function (point) {
+
+				var color = (0, _utils.entidad2Color)(point.entidad);
+
+				var icon = L.icon({
+					iconUrl: '/imgs/markers/marker-' + color + '.png',
+					//iconUrl		: `/imgs/markers/marker-is-info.png`,
+					iconAnchor: [12, 40]
+				});
+
+				var popupInfo = '\n\t\t\t\t<strong>' + point.nombre + '</strong>\n\t\t\t\t<p>' + point.direccion + '</p>\n\t\t\t\t<p>' + point.entidad + '</p>\n\t\t\t\t<a href=' + _config2.default.serverIp + '/#detalle/' + point.human_id + ' target="_blank">Detalle</a>\n\t\t\t\t<br />\n\t\t\t\t<br />\n\t\t\t\t<a href=https://www.facebook.com/sharer/sharer.php?u=' + _config2.default.serverIp + '/#detalle/#' + point.human_id + ' class="share facebook">Facebook</a>\n\t\t\t\t<br />\n\t\t\t\t<a href=https://twitter.com/home?status=http://' + _config2.default.serverIp + '/#detalle/#{point.human_id}>Twitter</a>\n\t\t\t\t<br />\n\t\t\t\t<a href="whatsapp://send?text=http://' + _config2.default.serverIp + '/#detalle/#{point.human_id}" data-action="share/whatsapp/share">Whatsapp</a>';
+
+				var marker = {
+					info: point,
+					marker: L.marker([point.lat, point.lng], { icon: icon }).addTo(window.box.map).bindPopup(popupInfo)
+				};
+
+				window.box.markers.push(marker);
+			});
+
+			//Evito que en el proximo render se dibujen puntos a menos que se seleccione algo
+			window.box.draw = false;
+		}
+
+		function initMap() {
+
+			window.box.map = L.map('leaflet-container').setView(center, initialZoom);
+
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(window.box.map);
+		}
+
+		function render() {
+			return h('div', { id: 'leaflet-container' });
+		}
+
+		var state = {};
+
+		var element = document.getElementById('leaflet-container');
+
+		if (props.draw) setTimeout(function () {
+			return drawPoints(window.box.entries);
+		}, 500);
+
+		if (props.zoomMunicipio && window.box.entries.length > 0) {
+
+			var onePoint = window.box.entries[0];
+			var latlng = [onePoint.lat, onePoint.lng];
+
+			setTimeout(function () {
+				return setView(latlng, municipioZoom);
+			}, 500);
+		} else if (props.zoomInicial) {
+			setTimeout(function () {
+				return setInitialView(center, initialZoom);
+			}, 600);
+		}
+
+		/*
+	 if(props.zoom) {
+	 	const onePoint = window.box.entries[0]
+	 	const latlng = [ onePoint.lat, onePoint.lng ]
+	 		setTimeout( () => setView(latlng, municipioZoom), 500)
+	 } else {
+	 	setTimeout( () => setInitialView(center, initialZoom), 600)
+	 }
+	 */
+
+		if (element) return element;
+
+		//Tengo que esperar un poco hasta que se inserte el elemento en el DOM
+		setTimeout(function () {
+			return initMap();
+		}, 500);
+
+		var component = render(state);
+		return component;
+	}
+
+	exports.default = Map;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	//TODO: Pasar a ES6
+
+	function Box() {
+
+		this.map = null;
+		this.markers = [];
+		this.allEntries = [];
+		this.entries = [];
+		this.draw = false;
+		this.zoomMunicipio = false;
+		this.zoomInicial = false;
+		this.municipio = null;
+	}
+
+	exports.default = Box;
 
 /***/ })
 /******/ ]);

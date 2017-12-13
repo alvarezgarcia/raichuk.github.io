@@ -1,0 +1,65 @@
+/* MDL */
+
+.mapa-doncel-template-header {
+  background-color: rgb(205,220,57);
+}
+
+.mdl-button--raised.mdl-button--colored:hover {
+  background-color: #f44b46;
+}
+
+.mdl-button--raised.mdl-button--colored {
+  background-color: #f44b46;
+}
+
+.mdl-navigation__link:hover {
+  color: white !important;
+	background-color: #f44b46 !important;
+}
+
+.selected-view {
+	color: white !important;
+	background-color: #f44b46 !important;
+}
+
+.evelia-icon {
+  color: #f44b46;
+}
+
+.evelia-round-button {
+  color: white;
+	background-color: #f44b46 !important;
+}
+
+.evelia-card {
+	display: flex;
+	min-height: 0!important;
+	width: 100%;
+	margin: auto;
+}
+
+.logo-container { 
+	display: flex;
+	justify-content: center;
+	padding: 10px 10px 10px 10px;
+}
+
+.selector {
+	width: 100%;
+	font-size: 20px;
+	background: #fbfafa;
+}
+
+.mail-composer {
+	width: 100%;
+}
+
+.evelia-switch {
+  display: flex;
+  flex-direction: space-around;
+}
+
+.not-found {
+  width: 100%;
+  text-align: center;
+}
